@@ -12,8 +12,25 @@ import java.util.List;
 @RestController
 public class UserController {
 
+
+
+//    方案一：属性注入(用的最多，最简洁，推荐)
     @Autowired
     private UserService userService;
+
+//    方案二：构造器注入
+//    private UserService userService;
+//    @Autowired  // 当前类中只存在一个构造函数，那么@Autowired可省略
+//    public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
+
+//    方案三：setter方法注入
+//    private UserService userService;
+//    @Autowired
+//    public void setUserService(UserService userService) {
+//        this.userService = userService;
+//    }
 
     @RequestMapping("/list")
     public List<User> list2(){
