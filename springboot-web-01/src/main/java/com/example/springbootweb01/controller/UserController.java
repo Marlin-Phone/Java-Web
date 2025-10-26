@@ -1,26 +1,19 @@
 package com.example.springbootweb01.controller;
 
-import cn.hutool.core.io.IoUtil;
 import com.example.springbootweb01.pojo.User;
 import com.example.springbootweb01.service.UserService;
 import com.example.springbootweb01.service.impl.UserServiceImpl;
-import org.mockito.internal.util.io.IOUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class UserController {
 
-    private UserService userService = new UserServiceImpl();
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/list")
     public List<User> list2(){

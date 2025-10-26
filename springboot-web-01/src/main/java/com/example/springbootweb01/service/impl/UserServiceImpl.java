@@ -4,15 +4,20 @@ import com.example.springbootweb01.dao.UserDao;
 import com.example.springbootweb01.dao.impl.UserDaoImpl;
 import com.example.springbootweb01.pojo.User;
 import com.example.springbootweb01.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class UserServiceImpl implements UserService {
         // 1.调用DAO
-        private UserDao userDao = new UserDaoImpl();
+        @Autowired // 自动查找并注入UserDaoImpl
+        private UserDao userDao;
 
         @Override
         public List<User> list(){
