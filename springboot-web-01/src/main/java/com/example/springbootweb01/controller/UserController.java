@@ -3,7 +3,9 @@ package com.example.springbootweb01.controller;
 import com.example.springbootweb01.pojo.User;
 import com.example.springbootweb01.service.UserService;
 import com.example.springbootweb01.service.impl.UserServiceImpl;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +17,9 @@ public class UserController {
 
 
 //    方案一：属性注入(用的最多，最简洁，推荐)
-    @Autowired
+//@Qualifier("userServiceImpl") // 方案2：若有多个实现类，可指定注入哪个实现类
+//@Autowired // 方案2
+@Resource(name="userServiceImpl2") // 方案3：若有多个实现类，可指定注入哪个实现类
     private UserService userService;
 
 //    方案二：构造器注入
